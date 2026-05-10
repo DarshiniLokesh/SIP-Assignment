@@ -1,0 +1,207 @@
+{
+  "info": {
+    "name": "SIP-Tracker API",
+    "description": "API collection for the SIP and Portfolio Valuation system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Investors",
+      "item": [
+        {
+          "name": "Create Investor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/investors",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "investors"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"john@example.com\",\n    \"phone\": \"1234567890\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Investor",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/investors/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "investors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Investor Holdings",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/investors/1/holdings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "investors", "1", "holdings"]
+            }
+          }
+        },
+        {
+          "name": "Get Investor Net Worth",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/investors/1/networth",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "investors", "1", "networth"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Funds",
+      "item": [
+        {
+          "name": "Create Fund",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/funds",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "funds"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"HDFC Top 100\",\n    \"amc_name\": \"HDFC Mutual Fund\",\n    \"nav\": 450.25\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Funds",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/funds",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "funds"]
+            }
+          }
+        },
+        {
+          "name": "Update Fund NAV",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/funds/1/nav",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "funds", "1", "nav"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nav\": 455.50\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SIPs",
+      "item": [
+        {
+          "name": "Register SIP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/sips",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "sips"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"investor_id\": 1,\n    \"fund_id\": 1,\n    \"amount\": 5000.00,\n    \"execution_date\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Get SIP Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/sips/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "sips", "1"]
+            }
+          }
+        },
+        {
+          "name": "Process SIP Installment",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "http://localhost:3000/api/sips/1/process",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "sips", "1", "process"]
+            }
+          }
+        },
+        {
+          "name": "Get SIP Transactions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/sips/1/transactions",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "sips", "1", "transactions"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
